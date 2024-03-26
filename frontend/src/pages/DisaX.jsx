@@ -6,7 +6,7 @@ import Chatcomponent from '../components/Chatcomponent'
 
 const DisaXBot = () => {
   return (
-    <div className='bg-gradient-to-r from-slate-900 to-slate-700 text-white '>
+    <div className='bg-bgGradient text-white '>
       <div className=' block md:hidden '><Topbar/></div>
       <div className='grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] px-3 md:px-20 h-[100vh] '>
         <Leftsidebar />

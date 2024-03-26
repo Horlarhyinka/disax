@@ -2,21 +2,46 @@ import React from "react";
 import Accountcard from "./Accountcard";
 
 const Popularaccounts = () => {
-  const user = {
-    "first_name": "United",
-    "last_name": "Nations",
-    "profile_pic": "../../avatar.png",
-    "username": "cartesi"
-
-  }
+  const users = [
+    {
+    "first_name": "United Nations",
+    // "last_name": "Nations",
+    "profile_pic": "../../unn.png",
+    "username": "unnnigeria"
+    },
+    {
+    "first_name": "Red Cross ",
+    // "last_name": "Cross",
+    "profile_pic": "../../red.png",
+    "username": "redcrossng"
+    },
+    {
+    "first_name": "Lawma",
+    "last_name": " ",
+    "profile_pic": "../../lawma.png",
+    "username": "lawma"
+    },
+    {
+    "first_name": "UNFCCC",
+    "last_name": " ",
+    "profile_pic": "../../unfcc.png",
+    "username": "unfcccnigeria"
+    },
+  ]
   
   return (
     <div>
-      <div className="flex flex-col gap-2 text-black bg-gradient-to-r from-fuchsia-500 to-purple-600 list-none py-4 m-4 rounded-2xl ">
+      <div className="flex flex-col gap-2 text-white bg-linear list-none py-4 m-4 rounded-2xl ">
         <h2 className="text-lg font-semibold p-3">Popular accounts</h2>
-        <Accountcard user={user} />
-        <Accountcard user={user} />
-        <Accountcard user={user} />
+        {
+          users.map((user) => {
+            return(
+              <Accountcard user={user} />
+            )
+          })
+        }
+        {/* <Accountcard user={user} />
+        <Accountcard user={user} /> */}
       </div>
     </div>
   );

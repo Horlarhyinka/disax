@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Accountcard from "./Accountcard";
 
 export default function Createpost() {
   const { register, handleSubmit, reset } = useForm();
@@ -107,38 +108,54 @@ export default function Createpost() {
     navigate(-1)
   };
 
+  const user = {
+    "first_name": "Titi Simon",
+    "last_name": " ",
+    "profile_pic": "../../pic1.png",
+    "username": "titisimon21"
+    }
+
   return (
+    <>
     <form
       onSubmit={handleSubmit(onSubmit)}
       className=" p-3 md:p-6 bg-white rounded-md shadow-md flex flex-col"
     >
-      <select
-        className="w-full p-2 mb-3 border bg-gray-500 rounded focus:border-green focus:outline-none"
-        {...register("category", { required: true })}
-      >
-        <option value="">Select Category</option>
-        <option value="community">Community</option>
-        <option value="education">Educational</option>
-        <option value="happening">Happening now</option>
-        {/* Add more options as needed */}
-      </select>
+      <div className=" flex justify-between gap-4 ">
+        {/* <Accountcard user={user} /> */}
+        <img src="../../pic1.png" alt="" className="w-10 h-10" />
+        <select
+          className=" rounded-full p-2 mb-3 border text-sm focus:border-green focus:outline-none"
+          {...register("category", { required: true })}
+       >  
+          <option value="">Select Category</option>
+          <option value="community">Community</option>
+          <option value="education">Educational</option>
+          <option value="happening">Disaster Report</option>
+          {/* Add more options as needed */}
+        </select>
+      </div>
+      
       <textarea
         type="text"
         placeholder="Description"
-        className="w-full p-2 mb-3 border text-black rounded focus:border-green focus:outline-none"
+        className=" p-2 mb-3 border text-black rounded-2xl focus:border-green focus:outline-none"
         {...register("content", { required: true })}
       />
-      <input
+      <div className=" flex justify-between items-center ">
+        <input
         type="file"
-        className="w-full p-2 mb-3 border rounded focus:border-green focus:outline-none"
+        className="  p-0 mb-3 border rounded focus:border-green focus:outline-none"
         {...register("image", { required: false })}
-      />
-      <button
-        className="w-full p-2 bg-green-500 text-white rounded cursor-pointer z-10"
-        type="submit"
-      >
-        Submit
-      </button>
+        />
+        <button
+          className="px-10 py-1 bg-linear text-white rounded-full cursor-pointer z-10"
+          type="submit"
+        >
+          Post
+        </button>
+      </div>
     </form>
+    </>
   );
 }

@@ -14,7 +14,7 @@ const Profile = () => {
   const backendUrl = import.meta.env.VITE_APP_BACKEND_URL;
   const accessToken = Cookies.get("access_token");
 
-  const user = JSON.parse(Cookies.get("user"));
+  // const user = JSON.parse(Cookies.get("user"));
 
   const headers = {
     "Content-Type": "application/json",

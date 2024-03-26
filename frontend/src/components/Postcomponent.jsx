@@ -10,6 +10,8 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
+import Modal from "./Modal";
+import Createcomment from "./Createcomment";
 
 const Postcomponent = ({ category = "", type = "post", postId = "" }) => {
   const BACKENDURL = import.meta.env.VITE_APP_BACKEND_URL;
@@ -19,6 +21,7 @@ const Postcomponent = ({ category = "", type = "post", postId = "" }) => {
   const [isLike, setIsLike] = useState(false);
   const [isSave, setIsSave] = useState(false);
   const [page, setPage] = useState("");
+  const [isModal, setIsModal] = useState(true);
 
   useEffect(() => {
     const headers = {
@@ -162,13 +165,40 @@ const Postcomponent = ({ category = "", type = "post", postId = "" }) => {
     }
   };
 
+  const postsNew = [
+    {
+      user: "hello",
+      content: "Hello this is sopposed to be content",
+      image: "avatar",
+      likers_count: 12,
+      comments_count: 4,
+      id: "diienr",
+      is_saved: true,
+      savers_count: 3
+    },
+    {
+      user: "hello",
+      content: "Hello this is sopposed to be content",
+      image: "avatar",
+      likers_count: 12,
+      comments_count: 4,
+      id: "diienr",
+      is_saved: true,
+      savers_count: 3
+    },
+  ]
+
+  console.log(isModal)
+
   return (
     <div className="py-3">
-      {posts.map((post, index) => (
+      {postsNew.map((post, index) => (
         <div key={index} className="border-b-[1px] border-gray-300 py-4">
           <Accountcard user={post.user} />
-          <div onClick={() => handlePostClick(post)}>
-            <p className="text-left text-sm px-3 my-3 ">{post.content}</p>
+          <div 
+          // onClick={() => handlePostClick(post)}
+          >
+            <p className="text-left text-sm px-3 my-3 " >{post.content}</p>
             <img
               className="w-[100%] px-3 "
               src={`${BACKENDURL}/api/${post.image}`}
@@ -178,21 +208,38 @@ const Postcomponent = ({ category = "", type = "post", postId = "" }) => {
           <div className="flex flex-row justify-between px-3 mt-2 ">
             <div
               className="flex flex-row items-center"
-              onClick={() => {
-                handleLike(post.id);
-              }}
+              // onClick={() => {
+              //   handleLike(post.id);
+              // }}
             >
               <AiFillHeart size={18} color={post.is_liked ? "#e01616" : ""} />
               <p className="text-xs ml-1 ">{post.likers_count}</p>
             </div>
-            <div className="flex flex-row items-center  ">
+            <div className="flex flex-row items-center "
+              onClick = {() => setIsModal(true)}
+            >
+              {
+                isModal && 
+                <Modal 
+                  closeFn={() => setIsModal(false)}
+                > 
+                  <div className="flex flex-col text-base place-self-center shadow-sm  ">
+                    <h2 className="text-xl font-bold text-left  ">Welcome to catesi wallet 👋🏽</h2>
+                    <p className="w-80 py-3 text-left  ">
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt fugit quasi quis aspernatur molestiae eum sed adipisci illo consectetur pariatur quaerat delectus, officiis saepe, cum provident totam nostrum odit repudiandae.
+                    </p>
+                    <button className="bg-linear px-4 py-2 rounded-full text-base  text-white self-end "  >Connect wallet</button>
+                  </div>
+                </Modal>
+              }
+              
               <FaDonate size={18} />
               <p className="text-xs ml-1 ">{post.comments_count}</p>
             </div>
             <Link to={page}>
               <div
                 className="flex flex-row items-center  "
-                onClick={() => commentPage(post.id)}
+                // onClick={() => commentPage(post.id)}
               >
                 <IoChatboxEllipses size={18} />
                 <p className="text-xs ml-1 ">{post.comments_count}</p>
@@ -201,9 +248,9 @@ const Postcomponent = ({ category = "", type = "post", postId = "" }) => {
 
             <div
               className="flex flex-row items-center"
-              onClick={() => {
-                handleSave(post.id);
-              }}
+              // onClick={() => {
+              //   handleSave(post.id);
+              // }}
             >
               <PiBookmarkFill
                 size={18}

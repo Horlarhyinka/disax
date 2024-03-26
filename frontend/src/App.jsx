@@ -29,6 +29,7 @@ function App() {
             <Route path="/community" element={<Community />} />
             <Route path="/education" element={<Education />} />
             <Route path="/happeningnow" element={<Happeningnow />} />
+            <Route path="/wallet" element={DisaX} />
             <Route path="/disaX" element={<DisaX />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/:postId/comments" element={<Comment type="comment" />} />

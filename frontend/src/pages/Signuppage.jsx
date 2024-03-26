@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import { AiOutlineClose } from "react-icons/ai";
 import Signupform from "../components/Signupform";
+import { BsFacebook, BsGithub } from "react-icons/bs";
+import { FaLinkedin } from "react-icons/fa";
 
 
 const oauthUrl = import.meta.env.VITE_APP_OAUTH_URL;
@@ -13,11 +15,11 @@ const Signuppage = () => {
 
   return (
     <>
-      <div className="grid text-white md:grid-cols-[3fr_4fr] grid-cols-[1fr] bg-gradient-to-r from-slate-900 to-slate-700  items-center ">
-        <div className="bg-gradient-to-r from-fuchsia-500 to-purple-600 grid place-content-center h-[80vh] md:h-[100vh]   ">
+      <div className="grid  md:grid-cols-[3fr_4fr] grid-cols-[1fr] bg-gradient-to-r from-slate-900 to-slate-700  items-center text-black ">
+        <div className=" bg-radial2  grid place-content-center h-[80vh] md:h-[100vh]   ">
           <img src="../../logolargewhite.png" alt="" />
         </div>
-        <div className="flex flex-col text-center items-center gap-4 -mt-[550px] md:mt-0 bg-opacity-40 backdrop-filter backdrop-blur-lg bg-white border md:border-0 border-gray-300  md:bg-inherit w-[90%] md:w-[100%] justify-self-center rounded-xl p-3 ">
+        <div className="flex flex-col text-center items-center gap-4 -mt-[550px] md:mt-0 bg-white border md:border-0 border-gray-300 h-screen  w-[90%] md:w-[100%] justify-self-center rounded-none p-3 ">
           {isFormOpen === false ? (
             <>
               <h1 className="text-2xl text-white font-semibold mb-3 mt-8 md:mt-0 ">
@@ -25,25 +27,30 @@ const Signuppage = () => {
               </h1>
               <a href={`${oauthUrl}/api/v1/auth/new-google`}>
                 <div
-                  className="flex flex-row mb-3 items-center md:text-xl text-base  font-semibold outline outline-1 bg-gradient-to-r from-fuchsia-500 to-purple-600 hover:bg-gradient-to-r hover:from-fuchsia-600 hover:to-purple-700 text-black p-4 rounded-full "
+                  className="flex flex-row mb-3 items-center md:text-xl text-base  font-semibold bg-linear text-white p-4 rounded-full rounded-full "
                   // onClick={() => googleSigninFunction()}
                 >
                   <FcGoogle className="mr-2  " size={32} /> Continue in with
                   Google
                 </div>
               </a>
-              <div className=" flex flex-row gap-5 items-center rounded-3xl p-4 justify-center bg-gradient-to-r from-fuchsia-500 to-purple-600 hover:bg-gradient-to-r hover:from-fuchsia-600 hover:to-purple-700 py-3 ">
-                <a href={`${oauthUrl}/api/v1/auth/github`}>
-                  <img className="w-[38px]" src="../../github.png" alt="" />
+              <div className="flex flex-row gap-6 items-center  p-4 justify-center  py-1 ">
+                <a href={`${oauthUrl}/api/v1/auth/github`} >
+                  <BsGithub color="black" size={34} />
+                  {/* <img className="w-[35px]" src="../../github.png" alt="" /> */}
                 </a>
-                <a href={`${oauthUrl}/api/v1/auth/facebook`}>
-                  <img className="w-[38px]" src="../../fb.jpg" alt="" />
+                <a href={`${oauthUrl}/api/v1/auth/facebook`}  >
+                  {/* className="p-1 rounded-full bg-white " */}
+                  <BsFacebook color="black" size={34} />
+                  {/* <img className="w-[35px]" src="../../fb.jpg" alt="" /> */}
                 </a>
-                <a href={`${oauthUrl}/api/v1/auth/linkedin`}>
-                  <img className="w-[38px]" src="../../link.png" alt="" />
+                <a href={`${oauthUrl}/api/v1/auth/linkedin`} >
+                  <FaLinkedin color="black" size={34} />
+                  {/* <img className="w-[35px]" src="../../link.png" alt="" /> */}
                 </a>
               </div>
               <p>or</p>
+              {/* <Signupform /> */}
               <button
                 className="md:text-xl text-base font-semibold bg-white hover:bg-gray-200 text-black  p-4 rounded-full w-[50%] "
                 onClick={() => setIsFormOpen(true)}
@@ -58,7 +65,7 @@ const Signuppage = () => {
               </p>
             </>
           ) : (
-            <div className="bg-gradient-to-r from-slate-800 to-slate-850 max-w-md mx-auto p-3 md:p-6 rounded-md shadow-md flex flex-col ">
+            <div className="bg-white to-slate-850 max-w-md mx-auto p-3 md:p-6 rounded-md shadow-md flex flex-col ">
               <AiOutlineClose
                 className="mb-3"
                 size={28}

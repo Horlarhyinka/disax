@@ -2,11 +2,11 @@ import { NavLink } from "react-router-dom";
 
 const Communityselector = () => {
   return (
-    <div className="flex flex-col gap-2 bg-gradient-to-r from-fuchsia-500 to-purple-600 text-black list-none  m-4 rounded-2xl ">
+    <div className="flex flex-col gap-2 bg-white bg-opacity-10 text-white list-none  m-4 rounded-2xl ">
       <NavLink
         className={({ isActive }) =>
           isActive
-            ? "hover:bg-graydark p-2 bg-gradient-to-r from-stone-500  to-stone-700  rounded-b-none rounded-2xl"
+            ? "hover:bg-graydark p-2 bg-white bg-opacity-25 rounded-b-none rounded-2xl"
             : "hover:bg-graydark p-2"
         }
         to={"/"}
@@ -17,7 +17,7 @@ const Communityselector = () => {
       <NavLink
         className={({ isActive }) =>
           isActive
-            ? "hover:bg-graydark p-2 bg-neutral-300 bg-gradient-to-r from-stone-500  to-stone-700  "
+            ? "hover:bg-graydark p-2 bg-white bg-opacity-25  "
             : "hover:bg-graydark p-2"
         }
         to={"/community"}
@@ -27,7 +27,7 @@ const Communityselector = () => {
       <NavLink
         className={({ isActive }) =>
           isActive
-            ? "hover:bg-graydark p-2 bg-neutral-300 bg-gradient-to-r from-stone-500  to-stone-700   "
+            ? "hover:bg-graydark p-2 bg-white bg-opacity-25   "
             : "hover:bg-graydark p-2"
         }
         to={"/education"}
@@ -37,7 +37,7 @@ const Communityselector = () => {
       <NavLink
         className={({ isActive }) =>
           isActive
-            ? "hover:bg-graydark p-2 bg-neutral-300 bg-gradient-to-r from-stone-500  to-stone-700   "
+            ? "hover:bg-graydark p-2 bg-white bg-opacity-25   "
             : "hover:bg-graydark p-2"
         }
         to={"/happeningnow"}
@@ -47,7 +47,7 @@ const Communityselector = () => {
       <NavLink
         className={({ isActive }) =>
           isActive
-            ? "hover:bg-graydark p-2 bg-neutral-300 bg-gradient-to-r from-stone-500  to-stone-700 rounded-t-none  rounded-2xl "
+            ? "hover:bg-graydark p-2 bg-white bg-opacity-25 rounded-t-none  rounded-2xl "
             : "hover:bg-graydark p-2"
         }
         to={"/disaX"}

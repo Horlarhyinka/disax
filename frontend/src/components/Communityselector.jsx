@@ -42,7 +42,7 @@ const Communityselector = () => {
         }
         to={"/happeningnow"}
       >
-        Happening now
+        Disaster Reports
       </NavLink>
       <NavLink
         className={({ isActive }) =>

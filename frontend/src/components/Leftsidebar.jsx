@@ -1,11 +1,9 @@
-import Accountcard from "./Accountcard";
 import Menu from "./Menu";
 import Cookies from "js-cookie";
 
 const Leftsidebar = () => {
-
   const user = JSON.parse(Cookies.get("user"));
-  
+  console.log(user);
 
   return (
     <div className=" border-r-[1px] border-gray-500 hidden md:block pt-5 ">
@@ -20,21 +18,19 @@ const Leftsidebar = () => {
       </div>
       <Menu />
       {/* Name box */}
-      <div className="flex flex-row items-center my-7 self-center ">
-      <img
+      <div className="flex flex- items-center my-7 self-center ">
+        <img
           src={user.profile_pic ? user.profile_pic : "../../avatar.png"}
           className="mr-2 rounded-full h-12"
           alt="Profile Pic"
-        />{" "}
+        />
         <div>
-        { <h3>{user?.first_name}</h3> }
-          { <p>@{user?.username}</p> }
+          {<h3>{user?.first_name}</h3>}
+          {<p>@{user?.username}</p>}
         </div>
       </div>
     </div>
   );
 };
-
-
 
 export default Leftsidebar;

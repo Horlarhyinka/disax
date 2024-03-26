@@ -108,12 +108,6 @@ export default function Createpost() {
     navigate(-1)
   };
 
-  const user = {
-    "first_name": "Titi Simon",
-    "last_name": " ",
-    "profile_pic": "../../pic1.png",
-    "username": "titisimon21"
-    }
 
   return (
     <>

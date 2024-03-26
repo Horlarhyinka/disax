@@ -10,42 +10,37 @@
 // License for the specific language governing permissions and limitations
 // under the License.
 
-import { FC } from "react";
 import injectedModule from "@web3-onboard/injected-wallets";
 import { init } from "@web3-onboard/react";
 import { useState } from "react";
 
 import { GraphQLProvider } from "./GraphQL";
-import { Notices } from "./Notices";
 import { Donates } from "./Donates";
-import { Inspect } from "./Inspect";
 import { Network } from "./Network";
-import { Vouchers } from "./Vouchers";
-import { Reports } from "./Reports";
 import configFile from "./config.json";
 //import "./App.css";
 import { Balance } from "./Balance";
-import {Heading, Flex, Input, Box, InputGroup, InputLeftAddon, Stack, SimpleGrid} from "@chakra-ui/react"
+import {Input, Box, InputGroup, InputLeftAddon, Stack, SimpleGrid} from "@chakra-ui/react"
 
 
-const config;
+const config = configFile;
 
 const injected = injectedModule();
 init({
     wallets: [injected],
-    chains: Object.entries(config).map(([k, v]: [string, any], i) => ({id: k, token: v.token, label: v.label, rpcUrl: v.rpcUrl})),
+    chains: Object.entries(config).map(([k, v], i) => ({id: k, token: v.token, label: v.label, rpcUrl: v.rpcUrl})),
     appMetadata: {
-        name: "Cartesi Rollups Test DApp",
+        name: "DisaXta Wallet",
         icon: "<svg><svg/>",
-        description: "Demo app for Cartesi Rollups",
+        description: "Donate for effective disaster response and relief",
         recommendedInjectedWallets: [
             { name: "MetaMask", url: "https://metamask.io" },
         ],
     },
 });
 
-const App = () => {
-    const [dappAddress, setDappAddress] = useState<string>("0x70ac08179605AF2D9e75782b8DEcDD3c22aA4D0C");
+const Web3 = () => {
+    const [dappAddress, setDappAddress] = useState("0xc9fb5A552619011Cf79659d5C862Bb7655b97E8C");
 
     return (
         <SimpleGrid columns={1} marginLeft={'25%'} marginRight={'25%'}>  
@@ -80,4 +75,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default Web3;

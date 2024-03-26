@@ -17,6 +17,7 @@ import Loginpage from "./pages/LoginPage";
 import Forgotpasswordpage from "./pages/Forgotpasswordpage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Web3 from "./dapp/Web3";
 
 function App() {
   return (
@@ -29,7 +30,6 @@ function App() {
             <Route path="/community" element={<Community />} />
             <Route path="/education" element={<Education />} />
             <Route path="/happeningnow" element={<Happeningnow />} />
-            <Route path="/wallet" element={DisaX} />
             <Route path="/disaX" element={<DisaX />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/:postId/comments" element={<Comment type="comment" />} />
@@ -46,6 +46,8 @@ function App() {
           />
           <Route path="/login" element={<Loginpage />} />
           <Route path="/forgotpassword" element={<Forgotpasswordpage />} />
+          <Route path="/wallet" element={<Web3/>}>
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

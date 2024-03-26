@@ -14,7 +14,7 @@ const DisaXBot = () => {
           <h2 className='pb-1 md:pb-3 md:p-4 text-lg md:text-xl font-semibold flex flex-row items-center '><BsRobot className='mr-1'/>DisaX</h2>
           <Chatcomponent  />
         </div>
-        <div className=' border-l-[1px] border-grey-500 hidden md:block pt-5 '>
+        <div className=' border-l-[1px] border-grey-500 hidden md:block pt-5 ' style={{border: "1px solid red"}}>
           {/* Search btn */}
           <div className='  md:pl-6 '>
               <input className='bg-graylight p-1 md:p-2 border-2 border-graydark rounded-full text-graydark ' type="text" placeholder='🔍Search' />
